@@ -9,8 +9,8 @@ import (
 )
 
 const (
-	ParallelJobArg          = "-parallel"
-	DefaultParallelJobCount = 10
+	parallelJobArg          = "-parallel"
+	defaultParallelJobCount = 10
 )
 
 // The object to parse arguments for configs
@@ -59,7 +59,7 @@ func (a *ArgParser) ParseArgList(args []string) {
 		}
 
 		// Check if the arg is reserved word for parallel jobs
-		if arg == ParallelJobArg {
+		if arg == parallelJobArg {
 			parallel = true
 			continue
 		}
@@ -70,7 +70,7 @@ func (a *ArgParser) ParseArgList(args []string) {
 
 	// If there is no arg for parallel jobs, set it as the default value
 	if a.parallelJobCount == 0 {
-		a.parallelJobCount = DefaultParallelJobCount
+		a.parallelJobCount = defaultParallelJobCount
 	}
 }
 

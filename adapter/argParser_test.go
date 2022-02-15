@@ -1,9 +1,7 @@
-package adapter_test
+package adapter
 
 import (
 	"testing"
-
-	"github.com/kinix/http-body-hash-generator/adapter"
 )
 
 func TestArgParser(t *testing.T) {
@@ -17,7 +15,7 @@ func TestArgParser(t *testing.T) {
 		{
 			[]string{"adjust.com", "google.com", "reddit.com/r/funny"},
 			[]string{"adjust.com", "google.com", "reddit.com/r/funny"},
-			adapter.DefaultParallelJobCount,
+			defaultParallelJobCount,
 		},
 		{
 			[]string{"-parallel", "42", "adjust.com", "google.com", "reddit.com/r/funny"},
@@ -32,12 +30,12 @@ func TestArgParser(t *testing.T) {
 		{
 			[]string{"-parallel", "adjust.com", "google.com", "reddit.com/r/funny"},
 			[]string{"google.com", "reddit.com/r/funny"},
-			adapter.DefaultParallelJobCount,
+			defaultParallelJobCount,
 		},
 	}
 
 	for _, test := range testCases {
-		parser := adapter.NewArgParser()
+		parser := NewArgParser()
 
 		// New parser parses CLI args default, so we need to override args
 		parser.ParseArgList(test.args)

@@ -1,9 +1,7 @@
-package adapter_test
+package adapter
 
 import (
 	"testing"
-
-	"github.com/kinix/http-body-hash-generator/adapter"
 )
 
 func TestMD5Generator(t *testing.T) {
@@ -18,7 +16,7 @@ func TestMD5Generator(t *testing.T) {
 		{"something else", "6c7ba9c5a141421e1c03cb9807c97c74"},
 	}
 
-	generator := &adapter.MD5Generator{}
+	generator := &MD5Generator{}
 
 	for _, test := range testCases {
 		result := generator.Generate(test.input)
