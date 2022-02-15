@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/kinix/http-body-hash-generator/app"
 )
 
 // If you want to use https, change this
@@ -11,6 +13,9 @@ const defaultProtocol = "http"
 
 type HttpClient struct {
 }
+
+// Validate interface compliance
+var _ app.HttpClient = (*HttpClient)(nil)
 
 // Send a HTTP GET request and return the response body
 func (c *HttpClient) GetBody(url string) (string, error) {

@@ -4,6 +4,8 @@ import (
 	"log"
 	"os"
 	"strconv"
+
+	"github.com/kinix/http-body-hash-generator/app"
 )
 
 const (
@@ -16,6 +18,9 @@ type ArgParser struct {
 	parallelJobCount int
 	list             []string
 }
+
+// Validate interface compliance
+var _ app.ConfigParser = (*ArgParser)(nil)
 
 func NewArgParser() *ArgParser {
 	parser := &ArgParser{}
